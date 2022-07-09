@@ -4,7 +4,6 @@ const MONSTER_ATTACK_VALUE = 15;
 const HEAL_VALUE = 20;
 
 const MODE_ATTACK = 'ATTACK';
-const MODE_STRONG_ATTACK = 'STRONG_ATTACK';
 const LOG_EVENT_PLAYER_ATTACK = 'PLAYER_ATTACK';
 const LOG_EVENT_MONSTER_ATTACK = 'PLAYER_ATTACK';
 const LOG_EVENT_PLAYER_STRONG_ATTACK = 'PLAYER_STRONG_ATTACK';
@@ -212,7 +211,27 @@ function healPlayerHandler() {
 }
 
 function printLogHandler() {
-    console.log(battleLog);
+    for (let i = 0; i < 3; i++) {
+        console.log('-----------');
+     }
+
+    // let j = 0;
+    // while (j < 3 ) {
+    //     console.log('-----------');
+    //     j++;
+    // }
+//    for (let i = 0; i < battleLog.length; i++) {
+//        console.log(battleLog[i]);
+//    }
+    // console.log(battleLog);
+    let i = 0;
+    for (const logEntry of battleLog) {
+        console.log(`#${i}`);
+        for (const key in logEntry) {
+            console.log(`${key} => ${logEntry[key]}`);
+        }
+        i++;
+    }
 }
 
 attackBtn.addEventListener('click', attackHandler);
